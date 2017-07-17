@@ -49,9 +49,6 @@ module.exports = {
 		$: 'jquery',
 		jquery: 'jquery',
 		jQuery: 'jquery'
-    }),
-	new CopyWebpackPlugin([
-		{from: 'asset/', to: 'asset'}
-	])
+    })
   ]
 };
