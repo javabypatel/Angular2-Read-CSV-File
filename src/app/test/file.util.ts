@@ -9,8 +9,8 @@ export class FileUtil {
         return file.name.endsWith(".csv");
     }
 
-    getHeaderArray(csvRecordsArr) {
-        let headers = csvRecordsArr[0].split(';');
+    getHeaderArray(csvRecordsArr, tokenDelimeter) {        
+        let headers = csvRecordsArr[0].split(tokenDelimeter);
         let headerArray = [];
         for (let j = 0; j < headers.length; j++) {
             headerArray.push(headers[j]);
@@ -33,23 +33,28 @@ export class FileUtil {
         return fileHeaderMatchFlag;
     }
 
-    getDataRecordsArrayFromCSVFile(csvRecordsArray, headerLength) {
+    getDataRecordsArrayFromCSVFile(csvRecordsArray, headerLength, 
+        validateHeaderAndRecordLengthFlag, tokenDelimeter) {
         var dataArr = []
 
         for (let i = 0; i < csvRecordsArray.length; i++) {
-            let data = csvRecordsArray[i].split(';');
+            let data = csvRecordsArray[i].split(tokenDelimeter);
             
-            if (data.length == headerLength) {
-                let col = [];
-
-                for (let j = 0; j < data.length; j++) {
-                    col.push(data[j]);
+            if(validateHeaderAndRecordLengthFlag && data.length != headerLength){
+                if(data==""){
+                    alert("Extra blank line is present at line number "+i+", please remove it.");
+                    return null;
+                }else{
+                    alert("Record at line number "+i+" contain "+data.length+" tokens, and is not matching with header length of :"+headerLength);
+                    return null;
                 }
-
-                dataArr.push(col);
-            }else{
-                return null;
             }
+
+            let col = [];
+            for (let j = 0; j < data.length; j++) {
+                col.push(data[j]);
+            }
+            dataArr.push(col);
         }   
         return dataArr;
     }

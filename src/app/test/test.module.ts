@@ -6,6 +6,7 @@ import { HttpModule }                       from '@angular/http';
 import { TestComponent }                    from './test.component';
 import { TestRoutes }                       from './test.routes';
 import { FileUtil }                         from './file.util';
+import { Constants }                        from './test.constants';
 
 @NgModule({
     //put all your modules here
@@ -28,7 +29,8 @@ import { FileUtil }                         from './file.util';
 
     // put all your services here
     providers: [
-        FileUtil
+        FileUtil,
+        Constants
     ],
 })
 

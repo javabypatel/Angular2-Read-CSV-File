@@ -27,9 +27,11 @@
     <table class="table table-responsive table-hover" border="1" 
         style="width : 50%;">
         <tbody>
-            <ng-container *ngFor="let csvRec of csvRecords;let i=index"> 
+            <ng-container *ngFor="let csvRec of csvRecords;let i=index">
                 <tr>
-                    <td>{{csvRec}}</td>
+                    <ng-container *ngFor="let data of csvRec;let j=index"> 
+                        <td>{{data}}</td>
+                    </ng-container>
                 </tr>
             </ng-container>
         </tbody>
