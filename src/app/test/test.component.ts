@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router }                       from "@angular/router";
 import { FileUtil }                     from './file.util';
 import { Constants }                    from './test.constants';
-
+ 
 @Component({
   template: require('./test.component.html')
 })
@@ -24,7 +24,8 @@ export class TestComponent implements OnInit {
   fileChangeListener($event): void {
 
     var text = [];
-    var files = $event.srcElement.files;
+    var target = $event.target || $event.srcElement;
+    var files = target.files; 
 
     if(Constants.validateHeaderAndRecordLengthFlag){
       if(!this._fileUtil.isCSVFile(files[0])){
