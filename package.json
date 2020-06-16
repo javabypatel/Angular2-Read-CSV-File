@@ -21,7 +21,7 @@
     "core-js": "2.4.1",
     "rxjs": "5.0.0-rc.4",
     "zone.js": "0.7.2",
-    "jquery": "^2.0.41"
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@types/bootstrap" : "3.3.32",
