@@ -16,4 +16,4 @@ export class Constants {
 ```
 2. Configurable token delimeter.
 
-Detailed examplation: http://javabypatel.blogspot.in/2017/07/read-csv-file-in-angular2.html
+Detailed examplation: https://javabypatel.blogspot.com/2017/07/read-csv-file-in-angular2.html
